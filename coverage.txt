@@ -1,0 +1,56 @@
+
+> @apps-fun/sdk@0.1.0 test:coverage
+> vitest run --coverage
+
+
+[1m[46m RUN [49m[22m [36mv4.0.17 [39m[90m/Users/zak/Desktop/sdk[39m
+      [2mCoverage enabled with [22m[33mv8[39m
+
+ [32m✓[39m src/__tests__/types.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 2[2mms[22m[39m
+ [32m✓[39m src/__tests__/token-gate.test.ts [2m([22m[2m14 tests[22m[2m)[22m[32m 3[2mms[22m[39m
+ [32m✓[39m src/__tests__/accounts.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 6[2mms[22m[39m
+ [32m✓[39m src/__tests__/pda.test.ts [2m([22m[2m21 tests[22m[2m)[22m[32m 16[2mms[22m[39m
+ [32m✓[39m src/__tests__/client.test.ts [2m([22m[2m19 tests[22m[2m)[22m[32m 7[2mms[22m[39m
+ [32m✓[39m src/__tests__/direct.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 125[2mms[22m[39m
+ [31m❯[39m src/__tests__/direct-simple.test.ts [2m([22m[2m16 tests[22m[2m | [22m[31m3 failed[39m[2m)[22m[32m 216[2mms[22m[39m
+       [32m✓[39m should reject zero amount in buyTokenDirect[32m 151[2mms[22m[39m
+       [32m✓[39m should reject negative amount in buyTokenDirect[32m 1[2mms[22m[39m
+       [32m✓[39m should reject invalid slippage in buyTokenDirect[32m 0[2mms[22m[39m
+       [32m✓[39m should reject negative slippage in buyTokenDirect[32m 0[2mms[22m[39m
+       [32m✓[39m should reject negative priority fee in buyTokenDirect[32m 0[2mms[22m[39m
+       [32m✓[39m should reject invalid token mint in buyTokenDirect[32m 0[2mms[22m[39m
+       [32m✓[39m should reject zero amount in sellTokenDirect[32m 1[2mms[22m[39m
+       [32m✓[39m should reject negative amount in sellTokenDirect[32m 0[2mms[22m[39m
+       [32m✓[39m should reject invalid slippage in sellTokenDirect[32m 0[2mms[22m[39m
+       [32m✓[39m should reject zero amount in burnTokenDirect[32m 1[2mms[22m[39m
+       [32m✓[39m should reject negative amount in burnTokenDirect[32m 0[2mms[22m[39m
+       [32m✓[39m should reject invalid token mint in burnTokenDirect[32m 0[2mms[22m[39m
+       [32m✓[39m should reject negative priority fee in burnTokenDirect[32m 0[2mms[22m[39m
+[31m       [31m×[31m should reject invalid amount in prepareDirectBuy[39m[32m 34[2mms[22m[39m
+[31m       [31m×[31m should reject invalid amount in prepareDirectSell[39m[32m 24[2mms[22m[39m
+[31m       [31m×[31m should reject invalid amount in prepareDirectBurn[39m[32m 1[2mms[22m[39m
+[90mstdout[2m | src/__tests__/integration/token-gate.integration.test.ts[2m > [22m[2mTokenGate Integration Tests (Devnet)
+[22m[39mConnected to Solana devnet: 3.1.6
+
+[90mstdout[2m | src/__tests__/integration/token-gate.integration.test.ts[2m > [22m[2mTokenGate Integration Tests (Devnet)[2m > [22m[2mConnection[2m > [22m[2mshould get slot number from devnet
+[22m[39mCurrent devnet slot: 437140344
+
+[90mstdout[2m | src/__tests__/integration/token-gate.integration.test.ts[2m > [22m[2mTokenGate Integration Tests (Devnet)[2m > [22m[2mTokenGate with WSOL[2m > [22m[2mshould check balance of random wallet (expect false - no WSOL)
+[22m[39mRandom wallet BUXchabC... balance: 0
+
+[90mstdout[2m | src/__tests__/integration/token-gate.integration.test.ts[2m > [22m[2mTokenGate Integration Tests (Devnet)[2m > [22m[2mTokenGate Caching[2m > [22m[2mshould cache balance results
+[22m[39mFirst call: 41ms, Second call: 1ms
+
+[90mstdout[2m | src/__tests__/integration/token-gate.integration.test.ts[2m > [22m[2mTokenGate Integration Tests (Devnet)[2m > [22m[2mTokenGate Batch Checking[2m > [22m[2mshould check multiple wallets in batch
+[22m[39mBatch checked 5 wallets
+
+[90mstdout[2m | src/__tests__/integration/token-gate.integration.test.ts[2m > [22m[2mTokenGate Integration Tests (Devnet)[2m > [22m[2mReal Token Test (if available)[2m > [22m[2mshould test with real token if TEST_TOKEN_MINT is set
+[22m[39mSKIPPING: Set TEST_TOKEN_MINT and TEST_WALLET env vars for this test
+
+ [32m✓[39m src/__tests__/integration/token-gate.integration.test.ts [2m([22m[2m13 tests[22m[2m)[22m[33m 3153[2mms[22m[39m
+
+[2m Test Files [22m [1m[31m1 failed[39m[22m[2m | [22m[1m[32m7 passed[39m[22m[90m (8)[39m
+[2m      Tests [22m [1m[31m3 failed[39m[22m[2m | [22m[1m[32m108 passed[39m[22m[90m (111)[39m
+[2m   Start at [22m 09:55:37
+[2m   Duration [22m 3.49s[2m (transform 486ms, setup 0ms, import 1.10s, tests 3.53s, environment 0ms)[22m
+

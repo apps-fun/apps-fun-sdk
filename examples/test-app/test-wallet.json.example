@@ -1,0 +1,6 @@
+[
+  "Replace this with your devnet test wallet private key array",
+  "You can export from Phantom wallet or generate with:",
+  "const keypair = Keypair.generate();",
+  "console.log(Array.from(keypair.secretKey));"
+]

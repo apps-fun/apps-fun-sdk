@@ -1,0 +1,40 @@
+# Test files and folders
+src/__tests__/
+**/*.test.ts
+**/*.test.js
+test-wallet.json
+*.test.json
+
+# Example applications
+examples/
+templates/
+
+# Source maps
+*.map
+*.d.ts.map
+
+# Configuration files
+.env
+.env.*
+!.env.example
+tsconfig.json
+vitest.config.*
+
+# Development files
+.vscode/
+.idea/
+*.log
+*.swp
+.DS_Store
+
+# Documentation source
+docs/
+
+# CI/CD
+.github/
+.gitlab-ci.yml
+.travis.yml
+
+# Build artifacts not needed
+src/
+coverage/

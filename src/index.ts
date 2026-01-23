@@ -103,3 +103,37 @@ export {
   UnauthorizedError,
   WalletNotLinkedError,
 } from './types';
+
+// Agent-friendly vibecode API
+export * as vibe from './vibecode';
+export {
+  // Token gating
+  hasTokens,
+  getBalance,
+  checkWallets,
+  
+  // Trading
+  buyTokens,
+  sellTokens,
+  burnTokens,
+  
+  // Pool info
+  getPrice,
+  getTokenInfo,
+  isAppsFunToken,
+  
+  // External wallets
+  prepareBuy,
+  prepareSell,
+  finishTransaction,
+  
+  // Market data
+  findTokens,
+  getTrending,
+  
+  // Middleware
+  requireTokens,
+  
+  // Discord
+  checkDiscordUser,
+} from './vibecode';

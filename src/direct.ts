@@ -259,8 +259,27 @@ export async function buyTokenDirect(
   connection: Connection,
   params: DirectTradeParams
 ): Promise<DirectTradeResult> {
+  // Input validation
+  if (params.amount <= 0) {
+    throw new Error('Amount must be positive');
+  }
+  
+  if (params.slippageBps !== undefined && (params.slippageBps < 0 || params.slippageBps > 10000)) {
+    throw new Error('Slippage must be between 0 and 10000 basis points');
+  }
+  
+  if (params.priorityFee !== undefined && params.priorityFee < 0) {
+    throw new Error('Priority fee must be non-negative');
+  }
+  
+  let tokenMint: PublicKey;
+  try {
+    tokenMint = toPublicKey(params.tokenMint);
+  } catch {
+    throw new Error('Invalid token mint address');
+  }
+  
   const client = DynamicBondingCurveClient.create(connection, 'confirmed');
-  const tokenMint = toPublicKey(params.tokenMint);
   const slippageBps = params.slippageBps ?? DEFAULT_SLIPPAGE_BPS;
   const priorityFee = params.priorityFee ?? 200_000;
 
@@ -360,8 +379,27 @@ export async function sellTokenDirect(
   connection: Connection,
   params: DirectTradeParams
 ): Promise<DirectTradeResult> {
+  // Input validation
+  if (params.amount <= 0) {
+    throw new Error('Amount must be positive');
+  }
+  
+  if (params.slippageBps !== undefined && (params.slippageBps < 0 || params.slippageBps > 10000)) {
+    throw new Error('Slippage must be between 0 and 10000 basis points');
+  }
+  
+  if (params.priorityFee !== undefined && params.priorityFee < 0) {
+    throw new Error('Priority fee must be non-negative');
+  }
+  
+  let tokenMint: PublicKey;
+  try {
+    tokenMint = toPublicKey(params.tokenMint);
+  } catch {
+    throw new Error('Invalid token mint address');
+  }
+  
   const client = DynamicBondingCurveClient.create(connection, 'confirmed');
-  const tokenMint = toPublicKey(params.tokenMint);
   const slippageBps = params.slippageBps ?? DEFAULT_SLIPPAGE_BPS;
   const priorityFee = params.priorityFee ?? 200_000;
 
@@ -465,7 +503,22 @@ export async function burnTokenDirect(
   connection: Connection,
   params: DirectBurnParams
 ): Promise<DirectBurnResult> {
-  const tokenMint = toPublicKey(params.tokenMint);
+  // Input validation
+  if (params.amount <= 0) {
+    throw new Error('Amount must be positive');
+  }
+  
+  if (params.priorityFee !== undefined && params.priorityFee < 0) {
+    throw new Error('Priority fee must be non-negative');
+  }
+  
+  let tokenMint: PublicKey;
+  try {
+    tokenMint = toPublicKey(params.tokenMint);
+  } catch {
+    throw new Error('Invalid token mint address');
+  }
+  
   const priorityFee = params.priorityFee ?? 200_000;
 
   // Get the associated token account
@@ -572,6 +625,19 @@ export async function prepareDirectBuy(
   connection: Connection,
   params: PrepareDirectTradeParams
 ): Promise<PreparedDirectTransaction> {
+  // Input validation
+  if (params.amount <= 0) {
+    throw new Error('Amount must be positive');
+  }
+  
+  if (params.slippageBps !== undefined && (params.slippageBps < 0 || params.slippageBps > 10000)) {
+    throw new Error('Slippage must be between 0 and 10000 basis points');
+  }
+  
+  if (params.priorityFee !== undefined && params.priorityFee < 0) {
+    throw new Error('Priority fee must be non-negative');
+  }
+  
   const client = DynamicBondingCurveClient.create(connection, 'confirmed');
   const tokenMint = toPublicKey(params.tokenMint);
   const walletPubkey = toPublicKey(params.walletAddress);
@@ -647,6 +713,19 @@ export async function prepareDirectSell(
   connection: Connection,
   params: PrepareDirectTradeParams
 ): Promise<PreparedDirectTransaction> {
+  // Input validation
+  if (params.amount <= 0) {
+    throw new Error('Amount must be positive');
+  }
+  
+  if (params.slippageBps !== undefined && (params.slippageBps < 0 || params.slippageBps > 10000)) {
+    throw new Error('Slippage must be between 0 and 10000 basis points');
+  }
+  
+  if (params.priorityFee !== undefined && params.priorityFee < 0) {
+    throw new Error('Priority fee must be non-negative');
+  }
+  
   const client = DynamicBondingCurveClient.create(connection, 'confirmed');
   const tokenMint = toPublicKey(params.tokenMint);
   const walletPubkey = toPublicKey(params.walletAddress);
@@ -722,6 +801,15 @@ export async function prepareDirectBurn(
   connection: Connection,
   params: PrepareDirectBurnParams
 ): Promise<PreparedDirectTransaction> {
+  // Input validation
+  if (params.amount <= 0) {
+    throw new Error('Amount must be positive');
+  }
+  
+  if (params.priorityFee !== undefined && params.priorityFee < 0) {
+    throw new Error('Priority fee must be non-negative');
+  }
+  
   const tokenMint = toPublicKey(params.tokenMint);
   const walletPubkey = toPublicKey(params.walletAddress);
   const priorityFee = params.priorityFee ?? 200_000;

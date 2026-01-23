@@ -1,7 +1,7 @@
 {
   "name": "@apps-fun/sdk",
   "version": "0.1.0",
-  "description": "SDK for apps.fun token gating and revenue routing",
+  "description": "Official SDK for building token-gated applications on Solana using apps.fun bonding curves",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
@@ -39,8 +39,18 @@
     "solana",
     "token-gating",
     "apps-fun",
-    "bonding-curve"
+    "bonding-curve",
+    "meteora",
+    "web3",
+    "defi",
+    "trading",
+    "blockchain",
+    "cryptocurrency"
   ],
+  "homepage": "https://github.com/apps-fun/sdk#readme",
+  "bugs": {
+    "url": "https://github.com/apps-fun/sdk/issues"
+  },
   "license": "MIT",
   "repository": {
     "type": "git",

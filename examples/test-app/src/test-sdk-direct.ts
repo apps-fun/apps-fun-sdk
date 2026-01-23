@@ -27,9 +27,29 @@ const DEVNET_RPC = 'https://api.devnet.solana.com';
 const WISE_MINT = '8mhrgWYE7ghFnbtxeGyGaP9Vd2D5SPSEjBa9xxA5xL3Y';
 
 async function loadTestWallet(): Promise<Keypair> {
+  // Load from environment variable or test-wallet.json file
+  const testPrivateKey = process.env.TEST_PRIVATE_KEY;
+  
+  if (testPrivateKey) {
+    // Parse from base58 string or JSON array
+    try {
+      const secretKey = JSON.parse(testPrivateKey);
+      return Keypair.fromSecretKey(Uint8Array.from(secretKey));
+    } catch {
+      // Try base58
+      const bs58 = require('bs58');
+      return Keypair.fromSecretKey(bs58.decode(testPrivateKey));
+    }
+  }
+  
+  // Fallback to file if exists (for backwards compatibility)
   const walletPath = path.join(__dirname, '..', 'test-wallet.json');
-  const secretKey = JSON.parse(fs.readFileSync(walletPath, 'utf-8'));
-  return Keypair.fromSecretKey(Uint8Array.from(secretKey));
+  if (fs.existsSync(walletPath)) {
+    const secretKey = JSON.parse(fs.readFileSync(walletPath, 'utf-8'));
+    return Keypair.fromSecretKey(Uint8Array.from(secretKey));
+  }
+  
+  throw new Error('No test wallet found. Set TEST_PRIVATE_KEY environment variable or provide test-wallet.json');
 }
 
 async function getTokenBalance(connection: Connection, mint: PublicKey, owner: PublicKey): Promise<bigint> {
