@@ -1,16 +1,30 @@
 {
   "name": "@apps-fun/sdk",
   "version": "0.1.0",
-  "description": "Official SDK for building token-gated applications on Solana using apps.fun bonding curves",
+  "description": "Official SDK for building token-gated applications on Solana and EVM chains using apps.fun bonding curves",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./evm/vibecode": {
+      "import": "./dist/evm/vibecode.mjs",
+      "require": "./dist/evm/vibecode.js"
+    }
+  },
+  "bin": {
+    "apps-fun-sdk": "./dist/cli/index.js"
+  },
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "tsup src/index.ts --format cjs,esm --dts --clean",
-    "dev": "tsup src/index.ts --format cjs,esm --dts --watch",
+    "build": "tsup src/index.ts src/evm/vibecode.ts src/cli/index.ts --format cjs,esm --dts --clean",
+    "dev": "tsup src/index.ts src/evm/vibecode.ts src/cli/index.ts --format cjs,esm --dts --watch",
     "lint": "eslint src/",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
@@ -25,35 +39,32 @@
     "bn.js": "^5.2.1"
   },
   "devDependencies": {
+    "@stryker-mutator/core": "^8.8.0",
+    "@stryker-mutator/vitest-runner": "^8.8.0",
     "@types/bn.js": "^5.2.0",
     "@types/node": "^25.0.9",
     "@vitest/coverage-v8": "^4.0.17",
-    "tsup": "^8.0.0",
-    "typescript": "^5.7.0",
+    "eslint": "^9.25.0",
+    "tsup": "^8.5.1",
+    "typescript": "^5.8.0",
+    "viem": "^2.30.0",
     "vitest": "^4.0.17"
   },
   "peerDependencies": {
-    "@solana/web3.js": ">=1.90.0"
+    "@solana/web3.js": ">=1.90.0",
+    "viem": ">=2.0.0"
   },
-  "keywords": [
-    "solana",
-    "token-gating",
-    "apps-fun",
-    "bonding-curve",
-    "meteora",
-    "web3",
-    "defi",
-    "trading",
-    "blockchain",
-    "cryptocurrency"
-  ],
-  "homepage": "https://github.com/apps-fun/sdk#readme",
-  "bugs": {
-    "url": "https://github.com/apps-fun/sdk/issues"
+  "peerDependenciesMeta": {
+    "@solana/web3.js": {
+      "optional": true
+    },
+    "viem": {
+      "optional": true
+    }
   },
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/apps-fun/sdk"
+    "url": "https://github.com/apps-fun/apps-fun-sdk.git"
   }
 }
