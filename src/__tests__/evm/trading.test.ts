@@ -321,7 +321,7 @@ describe('executeEVMBuy', () => {
 
     const callArgs = walletClient.writeContract.mock.calls[0][0];
     // Must use the appsFun address from getEVMContracts
-    expect(callArgs.address).toBe('0xfFFfffFff91A48384F062D43f1672F217C20aB20');
+    expect(callArgs.address).toBe('0xFfFFfFfffF6469850a0619fDFbA72cf4b4efcd3D');
   });
 
   it('deadline is approximately now + 1200 seconds', async () => {

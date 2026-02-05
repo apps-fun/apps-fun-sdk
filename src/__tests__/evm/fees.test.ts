@@ -84,7 +84,7 @@ describe('getEVMCreatorFees', () => {
 
     const callArgs = (client.readContract as ReturnType<typeof vi.fn>).mock.calls[0][0];
     // Should be the feeHolder address
-    expect(callArgs.address).toBe('0x36618900De93aAB3a9C765d39BC582F74120F403');
+    expect(callArgs.address).toBe('0x4f3fC5CE6Cfa9605faa0a4E9747De460338b1c7c');
   });
 
   it('propagates RPC errors', async () => {
@@ -131,7 +131,7 @@ describe('claimEVMFees', () => {
     await claimEVMFees(wallet, 'sepolia');
 
     const callArgs = wallet.writeContract.mock.calls[0][0];
-    expect(callArgs.address).toBe('0x36618900De93aAB3a9C765d39BC582F74120F403');
+    expect(callArgs.address).toBe('0x4f3fC5CE6Cfa9605faa0a4E9747De460338b1c7c');
   });
 
   it('passes account from wallet client', async () => {
@@ -184,8 +184,8 @@ describe('claimEVMLPFees', () => {
 
     const callArgs = wallet.writeContract.mock.calls[0][0];
     // feeHolder, not appsFun
-    expect(callArgs.address).toBe('0x36618900De93aAB3a9C765d39BC582F74120F403');
-    expect(callArgs.address).not.toBe('0xfFFfffFff91A48384F062D43f1672F217C20aB20');
+    expect(callArgs.address).toBe('0x4f3fC5CE6Cfa9605faa0a4E9747De460338b1c7c');
+    expect(callArgs.address).not.toBe('0xFfFFfFfffF6469850a0619fDFbA72cf4b4efcd3D');
   });
 
   it('passes the correct token address in args', async () => {

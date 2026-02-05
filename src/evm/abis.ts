@@ -27,6 +27,21 @@ export const APPS_FUN_ABI = [
     type: 'function',
   },
   {
+    inputs: [
+      { name: 'name', type: 'string' },
+      { name: 'symbol', type: 'string' },
+      { name: 'supply', type: 'uint256' },
+      { name: 'creatorAmount', type: 'uint256' },
+    ],
+    name: 'deployAndLaunchWithSplit',
+    outputs: [
+      { name: 'pair', type: 'address' },
+      { name: 'token', type: 'address' },
+    ],
+    stateMutability: 'nonpayable',
+    type: 'function',
+  },
+  {
     inputs: [{ name: '', type: 'address' }],
     name: 'getPair',
     outputs: [

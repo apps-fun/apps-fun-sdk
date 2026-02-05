@@ -152,7 +152,7 @@ describe('deployAndLaunchEVM', () => {
     });
 
     const callArgs = wallet.writeContract.mock.calls[0][0];
-    expect(callArgs.address).toBe('0xfFFfffFff91A48384F062D43f1672F217C20aB20');
+    expect(callArgs.address).toBe('0xFfFFfFfffF6469850a0619fDFbA72cf4b4efcd3D');
   });
 
   it('returns hash from writeContract', async () => {
@@ -233,7 +233,7 @@ describe('launchTokenEVM', () => {
     await launchTokenEVM(wallet, 'sepolia', TOKEN_ADDR, BigInt(1));
 
     const callArgs = wallet.writeContract.mock.calls[0][0];
-    expect(callArgs.address).toBe('0xfFFfffFff91A48384F062D43f1672F217C20aB20');
+    expect(callArgs.address).toBe('0xFfFFfFfffF6469850a0619fDFbA72cf4b4efcd3D');
   });
 
   it('works with base network', async () => {

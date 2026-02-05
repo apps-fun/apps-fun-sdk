@@ -864,8 +864,8 @@ interface EVMContractAddresses {
 ```
 
 **All EVM Networks (Sepolia, Base, Ethereum mainnet):**
-- AppsFun: `0xfFFfffFff91A48384F062D43f1672F217C20aB20`
-- FeeHolder: `0x36618900De93aAB3a9C765d39BC582F74120F403`
+- AppsFun: `0xFfFFfFfffF6469850a0619fDFbA72cf4b4efcd3D`
+- FeeHolder: `0x4f3fC5CE6Cfa9605faa0a4E9747De460338b1c7c`
 - MultiSend: `0xF981Ce18176F39a0E93fed69E34ec54Ef8200aAE`
 
 Per-network env var overrides: `{NETWORK}_APPSFUN_ADDRESS`, `{NETWORK}_FEEHOLDER_ADDRESS`, `{NETWORK}_MULTISEND_ADDRESS` where NETWORK is `SEPOLIA`, `BASE`, or `ETHEREUM`.
@@ -1664,8 +1664,8 @@ All networks share the same default contract addresses:
 
 | Contract | Address | Override Pattern |
 |----------|---------|-----------------|
-| AppsFun | `0xfFFfffFff91A48384F062D43f1672F217C20aB20` | `{NETWORK}_APPSFUN_ADDRESS` |
-| FeeHolder | `0x36618900De93aAB3a9C765d39BC582F74120F403` | `{NETWORK}_FEEHOLDER_ADDRESS` |
+| AppsFun | `0xFfFFfFfffF6469850a0619fDFbA72cf4b4efcd3D` | `{NETWORK}_APPSFUN_ADDRESS` |
+| FeeHolder | `0x4f3fC5CE6Cfa9605faa0a4E9747De460338b1c7c` | `{NETWORK}_FEEHOLDER_ADDRESS` |
 | MultiSend | `0xF981Ce18176F39a0E93fed69E34ec54Ef8200aAE` | `{NETWORK}_MULTISEND_ADDRESS` |
 
 Where `{NETWORK}` is `SEPOLIA`, `BASE`, or `ETHEREUM`. Each network can override addresses independently via environment variables.

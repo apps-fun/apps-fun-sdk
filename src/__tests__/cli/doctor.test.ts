@@ -278,7 +278,7 @@ describe('runDoctor', () => {
       const output = getOutput();
 
       expect(output).toContain('Contracts (sepolia)');
-      expect(output).toContain('appsFun=0xfFFfffFf');
+      expect(output).toContain('appsFun=0xFfFFfFff');
     });
 
     it('reports OK for base with non-zero default addresses', async () => {
@@ -288,7 +288,7 @@ describe('runDoctor', () => {
         .map((c: any) => c[0] as string)
         .find((line: string) => line.includes('Contracts (base)'));
       expect(baseLine).toContain('[OK]');
-      expect(baseLine).toContain('appsFun=0xfFFfffFf');
+      expect(baseLine).toContain('appsFun=0xFfFFfFff');
       expect(baseLine).not.toContain('zero');
     });
 
@@ -299,7 +299,7 @@ describe('runDoctor', () => {
         .map((c: any) => c[0] as string)
         .find((line: string) => line.includes('Contracts (ethereum)'));
       expect(ethereumLine).toContain('[OK]');
-      expect(ethereumLine).toContain('appsFun=0xfFFfffFf');
+      expect(ethereumLine).toContain('appsFun=0xFfFFfFff');
     });
 
     it('no contracts line shows zero for default addresses', async () => {
@@ -349,8 +349,8 @@ describe('runDoctor', () => {
       const sepoliaLine = consoleSpy.mock.calls
         .map((c: any) => c[0] as string)
         .find((line: string) => line.includes('Contracts (sepolia)'));
-      expect(sepoliaLine).toContain('appsFun=0xfFFfffFf...');
-      expect(sepoliaLine).not.toContain('0xfFFfffFff91A48384F');
+      expect(sepoliaLine).toContain('appsFun=0xFfFFfFff...');
+      expect(sepoliaLine).not.toContain('0xFfFFfFfffF6469850a');
     });
 
     it('reports OK for base when addresses overridden to non-zero', async () => {

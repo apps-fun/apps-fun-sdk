@@ -129,12 +129,12 @@ describe('getEVMContracts', () => {
 
   it('sepolia defaults to known appsFun address', () => {
     const result = getEVMContracts('sepolia')!;
-    expect(result.appsFun).toBe('0xfFFfffFff91A48384F062D43f1672F217C20aB20');
+    expect(result.appsFun).toBe('0xFfFFfFfffF6469850a0619fDFbA72cf4b4efcd3D');
   });
 
   it('sepolia defaults to known feeHolder address', () => {
     const result = getEVMContracts('sepolia')!;
-    expect(result.feeHolder).toBe('0x36618900De93aAB3a9C765d39BC582F74120F403');
+    expect(result.feeHolder).toBe('0x4f3fC5CE6Cfa9605faa0a4E9747De460338b1c7c');
   });
 
   it('sepolia defaults to known multiSend address', () => {
@@ -219,13 +219,13 @@ describe('getEVMContracts', () => {
   it('env value without 0x prefix is ignored, falls back to default', () => {
     process.env.SEPOLIA_APPSFUN_ADDRESS = 'not-a-valid-address';
     const result = getEVMContracts('sepolia')!;
-    expect(result.appsFun).toBe('0xfFFfffFff91A48384F062D43f1672F217C20aB20');
+    expect(result.appsFun).toBe('0xFfFFfFfffF6469850a0619fDFbA72cf4b4efcd3D');
   });
 
   it('empty env value falls back to default', () => {
     process.env.SEPOLIA_APPSFUN_ADDRESS = '';
     const result = getEVMContracts('sepolia')!;
-    expect(result.appsFun).toBe('0xfFFfffFff91A48384F062D43f1672F217C20aB20');
+    expect(result.appsFun).toBe('0xFfFFfFfffF6469850a0619fDFbA72cf4b4efcd3D');
   });
 
   // --- Network isolation: sepolia env does not affect base ---

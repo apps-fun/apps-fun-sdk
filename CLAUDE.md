@@ -340,8 +340,8 @@ EVM: enforced at AppsFun AMM contract level.
 ## Contract Addresses (EVM)
 
 All EVM networks (Sepolia, Base, Ethereum mainnet) share the same default addresses:
-- AppsFun: `0xfFFfffFff91A48384F062D43f1672F217C20aB20`
-- FeeHolder: `0x36618900De93aAB3a9C765d39BC582F74120F403`
+- AppsFun: `0xFfFFfFfffF6469850a0619fDFbA72cf4b4efcd3D`
+- FeeHolder: `0x4f3fC5CE6Cfa9605faa0a4E9747De460338b1c7c`
 - MultiSend: `0xF981Ce18176F39a0E93fed69E34ec54Ef8200aAE`
 
 Per-network env var overrides: `{NETWORK}_APPSFUN_ADDRESS`, `{NETWORK}_FEEHOLDER_ADDRESS`, `{NETWORK}_MULTISEND_ADDRESS` where NETWORK is `SEPOLIA`, `BASE`, or `ETHEREUM`.
