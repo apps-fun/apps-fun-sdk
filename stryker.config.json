@@ -1,0 +1,36 @@
+{
+  "$schema": "https://raw.githubusercontent.com/stryker-mutator/stryker/master/packages/core/schema/stryker-core.schema.json",
+  "testRunner": "vitest",
+  "vitest": {
+    "configFile": "vitest.config.ts"
+  },
+  "mutate": [
+    "src/types/chain.ts",
+    "src/evm/contracts.ts",
+    "src/evm/client.ts",
+    "src/evm/trading.ts",
+    "src/evm/fees.ts",
+    "src/evm/launch.ts",
+    "src/evm/tokenGate.ts",
+    "src/evm/tokenOps.ts",
+    "src/evm/distribute.ts",
+    "src/evm/tokenFlow.ts",
+    "src/evm/vibecode.ts",
+    "src/evm/events.ts",
+    "src/evm/confirm.ts",
+    "src/evm/buybackBurn.ts",
+    "src/evm/presets.ts",
+    "src/evm/analytics.ts",
+    "src/evm/tokenInfo.ts",
+    "src/evm/holders.ts",
+    "src/evm/referral.ts",
+    "src/evm/portfolio.ts",
+    "src/evm/burnAnalytics.ts",
+    "src/evm/abis.ts",
+    "src/cli/doctor.ts"
+  ],
+  "reporters": ["clear-text", "progress"],
+  "coverageAnalysis": "perTest",
+  "timeoutMS": 30000,
+  "concurrency": 4
+}

@@ -1,0 +1,4 @@
+Upstream: https://github.com/apps-fun/apps-fun-sdk.git
+Commit: ed5b5e62baafa7cc269f62f8247ed49460c94ca4
+VendoredAt: 2026-02-04
+Notes: Vendored to avoid git submodule drift/broken refs in app.fun.
